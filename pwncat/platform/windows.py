@@ -450,6 +450,11 @@ class Windows(Platform):
         ),
     ]
 
+    def context_changed(self):
+        """Shell or user context has been manually changed by the framework"""
+
+        self.refresh_uid()
+
     @classmethod
     def open_plugin(cls, manager: "pwncat.manager.Manager", name: str) -> BytesIO:
         """
